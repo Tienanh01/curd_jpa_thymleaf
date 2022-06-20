@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{/department/edit}" method="post">
+    <input name="id" type="hidden" th:value="${department.id}"/>
+  <input name="name" placeholder="Name" th:value="${department.name}"/>
+  <input type="date" name="date_At" th:value="${department.date}" />
+  <!--            typeof="dd/mm/yyyy"-->
+  <input type="submit" value="Save">
+</form>
+</body>
+</html>

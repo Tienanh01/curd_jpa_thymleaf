@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <form th:action="@{/ticket/add}" method="post">
+        <input name="phone_number"  placeholder="Số điện thoại">
+          <textarea name="text_customer" placeholder="ý kiến khách hàng"></textarea>
+          <input name="tg_tiepnhan_d"  type="date">
+          <textarea name="content" placeholder="Nội dung sử lý"></textarea>
+          <input name="status" type="radio">
+          <input name="tg_xuly_d" type="date">
+          <select name="department_id" >
+              <option th:each="department : ${departments}" th:value="${department.id}" th:text="${department.name}" ></option>
+
+          </select>
+          <input type="submit" value="Save">
+      </form>
+</body>
+</html>

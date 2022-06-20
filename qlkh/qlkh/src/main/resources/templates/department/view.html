@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Id phòng ban</th>
+        <th>Tên phòng ban</th>
+        <th>Ngày tạo</th>
+    </tr>
+    <tr th:each="department : ${departments}" >
+        <td th:text="${department.id}"></td>
+        <td th:text="${department.name}"></td>
+        <td th:text="${#dates.format(department.date, 'dd-MMMM-yyyy')}" ></td>
+        <td><a th:href="@{'/department/detail?id=' + ${department.id} }">View</a></td>
+        <td><a th:href="@{'/department/delete?id=' + ${department.id} }">Delete</a></td>
+        <td><a th:href="@{'/department/edit?id=' + ${department.id} }">Edit</a></td>
+    </tr>
+
+</table>
+
+ <div class="col-md-6">
+     <form>
+    <nav aria-label="Page navigation example">
+
+        <ul class="pagination" name="page" onchange="this.form.submit()">
+            <li class="page-item"><a class="page-link" th:href="@{/department/view(page=${(page-1>0)? page-1:0 })}">Previous</a></li>
+            <li class="page-item" th:each="i: ${#numbers.sequence(0, totalPage-1 )}"><a class="page-link" th:href="@{/department/view(page=${i})}" th:text=${i}></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/department/view(page=${(page+1>totalPage-1)? totalPage-1:page+1})}">Next</a></li>
+        </ul>
+    </nav>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/ticket/edit}" method="post">
+    <input name="id" readonly th:value="${ticket.id}" >
+    <input name="phone_number"  placeholder="Số điện thoại" th:value="${ticket.phone_number}" >
+    <textarea name="text_customer" placeholder="ý kiến khách hàng" th:value="${ticket.text_customer}"></textarea>
+    <input name="tg_tiepnhan_d"  type="date" th:value="${ticket.tg_tiepnhan}">
+    <textarea name="content" placeholder="Nội dung sử lý" th:value="${ticket.content}"></textarea>
+    <input name="status" type="radio" th:value="${ticket.status}">
+
+    <input name="tg_xuly_d" type="date" th:value="${ticket.tg_xuly}">
+    <select name="department_id"  >
+        <option th:each=" department:${departments}" th:value="${department.id}" th:text="${department.name}" ></option>
+    </select>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

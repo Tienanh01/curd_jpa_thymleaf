@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+
+        <th>Ticket id</th>
+        <th>Số điện thoại</th>
+        <th>ý kiến khách hàng</th>
+        <th>Thời gian tiếp nhận</th>
+        <th>Nội dung sử lý </th>
+        <th>Trạng thái sử lý</th>
+        <th>Thời gian sử lý</th>
+    </tr>
+    <tr>
+        <td th:text="${ticket.id}"></td>
+        <td th:text="${ticket.phone_number}"></td>
+        <td th:text="${ticket.text_customer}"></td>
+        <td th:text="${#dates.format(ticket.tg_tiepnhan ,'dd-MMMM-yyyy') }"></td>
+        <td th:text="${ticket.content}"></td>
+        <td th:text="${ticket.status}"></td>
+        <td th:text="${#dates.format(ticket.tg_xuly,'dd-MMMM-yyyy')}"></td>
+    </tr>
+</table>
+</body>
+</html>
