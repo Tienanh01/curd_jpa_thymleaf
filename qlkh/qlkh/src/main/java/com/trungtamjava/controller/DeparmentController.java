@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/department")
+@RequestMapping({"/department","/"})
 public class DeparmentController {
     @Autowired
     private  DepartmentRepsitory departmentRepsitory;
